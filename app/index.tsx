@@ -1,8 +1,11 @@
 import PrimaryButton from '@/components/UI/PrimaryButton';
 import SecondaryButton from '@/components/UI/SecondaryButton';
+import { useRouter } from 'expo-router';
 import { Text, View } from 'react-native';
 
 const Index = () => {
+  const router = useRouter();
+
   return (
     <View className="flex-1 bg-background justify-center items-center">
       <Text className="font-osemibold text-6xl text-onBackground">
@@ -13,10 +16,10 @@ const Index = () => {
         Just Order
       </Text>
 
-      <SecondaryButton
+      <PrimaryButton
         label="Order Now"
         onPress={() => {
-          return;
+          router.push('/search');
         }}
       />
     </View>

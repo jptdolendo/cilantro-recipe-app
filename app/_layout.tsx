@@ -26,7 +26,11 @@ const RootLayout = () => {
     return null;
   }
 
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="(screens)" options={{}} />
+    </Stack>
+  );
 };
 
 export default RootLayout;
