@@ -9,6 +9,9 @@ dist/
 web-build/
 expo-env.d.ts
 
+# NativeWind
+nativewind-env.d.ts
+
 # Native
 *.orig.*
 *.jks
@@ -19,6 +22,9 @@ expo-env.d.ts
 
 # Metro
 .metro-health-check*
+
+# Prettier
+.prettierrc
 
 # debug
 npm-debug.*
