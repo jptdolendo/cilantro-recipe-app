@@ -1,29 +1,13 @@
-import PrimaryButton from '@/components/UI/PrimaryButton';
-import SecondaryButton from '@/components/UI/SecondaryButton';
-import { useRouter } from 'expo-router';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import React from 'react';
+import IndexContent from '@/components/screens/Index/IndexScreen';
 
-const Index = () => {
-  const router = useRouter();
-
+const index = () => {
   return (
-    <View className="flex-1 bg-background justify-center items-center">
-      <Text className="font-osemibold text-6xl text-onBackground">
-        Dont Starve,
-      </Text>
-
-      <Text className="font-osemibold text-6xl text-onBackground">
-        Just Order
-      </Text>
-
-      <PrimaryButton
-        label="Order Now"
-        onPress={() => {
-          router.push('/search');
-        }}
-      />
+    <View className="flex-1">
+      <IndexContent />
     </View>
   );
 };
 
-export default Index;
+export default index;
