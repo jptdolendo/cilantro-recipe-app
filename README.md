@@ -12,8 +12,6 @@
 
 ## Get started
 
-
-
 1. Install dependencies
 
    ```bash
@@ -25,3 +23,7 @@
    ```bash
     npx expo start
    ```
+
+## References
+- [Nutritional Info App on Dribbble](https://dribbble.com/shots/11214364-Nutritional-Info-App)
+- [Case study: vegetarians food delivery on Dribbble](https://dribbble.com/shots/17912156-Case-study-vegetarians-food-delivery)
