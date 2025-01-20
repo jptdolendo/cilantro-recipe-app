@@ -1,13 +1,14 @@
-import { Text, View } from 'react-native';
+import { ActivityIndicator, Text, View } from 'react-native';
 import React, { useCallback, useState } from 'react';
 import SearchBar from '@/components/UI/SearchBar';
 import debounce from 'lodash.debounce';
 import { fetchRecipes } from '@/utils/api';
 import { FlashList } from '@shopify/flash-list';
-import FoodCard from '@/components/UI/FoodCard/FoodCard';
+import FoodCard from '@/components/FoodCard/FoodCard';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { isObjectEmpty } from '@/helpers/isObjectEmpty';
 import EmptyContent from './EmptyContent';
+import LoadingIndicator from '@/components/UI/LoadingIndicator';
 
 const SearchContent = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -23,14 +24,20 @@ const SearchContent = () => {
 
   const debouncedSearch = useCallback(
     debounce((query: string) => {
-      fetchRecipes(query).then((results) => {
-        setRecipes(results);
-      });
+      fetchRecipes(query)
+        .then((results) => {
+          setRecipes(results);
+        })
+        .catch()
+        .finally(() => {
+          setIsLoading(false);
+        });
     }, 500),
     []
   );
 
   const onChangeText = (text: string) => {
+    setIsLoading(true);
     setSearchQuery(text);
     debouncedSearch(text);
   };
@@ -44,7 +51,9 @@ const SearchContent = () => {
         style="mb-2"
       />
 
-      {!isObjectEmpty(recipes) ? (
+      {isLoading ? (
+        <LoadingIndicator />
+      ) : !isObjectEmpty(recipes) ? (
         <FlashList
           data={recipes}
           renderItem={({ item }) => <FoodCard recipe={item.recipe} />}

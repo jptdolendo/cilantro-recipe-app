@@ -4,7 +4,7 @@ import SearchContent from '@/components/screens/Search/SearchContent';
 
 const SearchScreen = () => {
   return (
-    <SafeAreaView className="flex-1 px-4 pt-4 bg-background">
+    <SafeAreaView className="flex-1 px-4 pt-4 mx-2  bg-background">
       <SearchContent />
     </SafeAreaView>
   );

@@ -4,8 +4,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Icon from '@/components/UI/Icon';
-import { Pressable, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { Pressable } from 'react-native';
 
 type Screen = {
   name: string;
@@ -21,11 +20,6 @@ const screens: Screen[] = [
     name: 'search',
     title: 'Search',
     icon: { name: 'magnify', filled: 'magnify' }
-  },
-  {
-    name: 'recipe',
-    title: 'Recipe',
-    icon: { name: 'food-apple-outline', filled: 'food-apple' }
   },
   {
     name: 'favorites',
@@ -50,7 +44,6 @@ const ScreensLayout = () => {
         tabBarActiveTintColor: '#38b168',
         tabBarInactiveTintColor: '#4f4f4f',
         tabBarStyle: {
-          elevation: 0,
           height: 60 + insets.bottom,
           borderTopWidth: 0,
           position: 'absolute'
@@ -58,14 +51,6 @@ const ScreensLayout = () => {
         tabBarLabelStyle: { fontFamily: 'Outfit-Regular' },
         tabBarButton: (props) => (
           <Pressable {...props} android_ripple={undefined} />
-        ),
-        tabBarBackground: () => (
-          <View className="flex-1">
-            <LinearGradient
-              colors={['transparent', '#f0f0f0']}
-              style={{ height: 60 + insets.bottom }}
-            />
-          </View>
         )
       }}
     >
